@@ -3,11 +3,13 @@ html {
 }
 
 header {
-  padding: 0rem 8rem;
   height: 4.2rem;
   display: flex;
   border-bottom: 0.2px solid rgba(0, 0, 0, 0.24);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: sticky;
+  top: 0;
+  background-color: white;
 }
 
 .nav-bar {
@@ -15,6 +17,7 @@ header {
   justify-content: space-between;
   gap: 1rem;
   flex-grow: 1;
+  padding: 0rem 8rem;
 }
 
 .logo {
@@ -24,7 +27,7 @@ header {
 }
 
 #logo {
-  width: 8rem;
+  width: 9rem;
 }
 
 .headers {
@@ -89,4 +92,12 @@ header {
   border-color: #3d6ec9;
   background-color: #3d6ec9;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+main {
+  /* margin-top: 500px; */
+}
+
+main div {
+  height: 600px;
 }
