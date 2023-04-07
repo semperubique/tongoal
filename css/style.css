@@ -18,7 +18,7 @@
     justify-content: space-between;
     gap: 1rem;
     flex-grow: 1;
-    padding: 0rem 14rem;
+    padding: 0rem 8rem;
   }
 
   .logo {
@@ -70,8 +70,12 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
+  #register {
+    font-weight: bold;
+  }
+
   main {
-    padding: 7rem 14rem 0rem 14rem;
+    padding: 7rem 20rem 7rem 20rem;
   }
   #overview {
     display: flex;
@@ -81,12 +85,18 @@
   }
 
   #overview h2 {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   #overview p {
     font-size: 1.4rem;
     color: gray;
+  }
+
+  #overview .info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
   }
 
   .info-1,
@@ -95,14 +105,74 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    column-gap: 12rem;
+    column-gap: 10rem;
   }
 
   #overview img {
-    width: 500px;
+    width: 600px;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
   footer {
-    background-color: gray;
+    padding: 4.5rem 0;
+    background-color: #24262b;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .footer-col {
+    width: 33rem;
+  }
+  .footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+  }
+  .footer-col h4::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #ffd04b;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+  }
+  .footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  .footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  .footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+  }
+  .footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+  }
+  .footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
   }
 }
