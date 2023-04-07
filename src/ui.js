@@ -14,9 +14,11 @@ const updateUI = (() => {
     logIn.classList.add("logIn");
     register.classList.add("register");
 
-    logoImage.src = "../src/assets/images/logo.svg";
+    logoImage.src = "assets/images/logo.svg";
     logIn.textContent = "Log in";
     register.textContent = "Create a free account";
+    logIn.href = "#";
+    register.href = "#";
 
     logo.appendChild(logoImage);
     logInAndRegister.appendChild(logIn);
