@@ -9,6 +9,7 @@ header {
 
   position: sticky;
   top: 0;
+  height: 4rem;
 }
 
 .logo img {
@@ -160,19 +161,33 @@ footer .social a:hover {
   flex-grow: 1;
   display: flex;
   background-color: #4688f4;
+  height: 100%;
 }
 
 .navigationBar > * {
   color: white;
-  padding: 1.4rem;
 }
 
-.navigationBar > *:hover {
+.navigationBar > button:hover {
   background-color: #3d6ec9;
+}
+
+.navigationBar button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 0.1rem;
+  padding: 1.4rem;
 }
 
 .avatar {
   background-color: #3d6ec9;
   color: white;
-  padding: 1.4rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1.4rem;
 }
