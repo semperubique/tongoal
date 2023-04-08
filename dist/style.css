@@ -53,3 +53,40 @@ header {
   background-color: #3d6ec9;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+main {
+  padding: 7rem 20rem;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 12rem;
+}
+
+.overview h2 {
+  font-size: 4rem;
+}
+
+.overview p {
+  font-size: 1.4rem;
+  color: gray;
+}
+
+.overview .info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.overview > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10rem;
+}
+
+.overview img {
+  width: 600px;
+}
