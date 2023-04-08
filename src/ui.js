@@ -1,6 +1,16 @@
 import { updateUX } from "./ux";
 
 const updateUI = (() => {
+  const loadSocialIcons = () => {
+    const head = document.querySelector("head");
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href =
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css";
+    head.appendChild(link);
+  };
+
   const loadLandingPageHeader = () => {
     const header = document.querySelector("header");
     const logo = document.createElement("div");
@@ -27,6 +37,7 @@ const updateUI = (() => {
     header.appendChild(logo);
     header.appendChild(logInAndRegister);
   };
+
   const loadLandingPageMain = () => {
     const main = document.querySelector("main");
     const overview = document.createElement("div");
@@ -87,20 +98,86 @@ const updateUI = (() => {
 
     main.appendChild(overview);
   };
-  const loadLandingPageFooter = () => {};
+
+  const loadLandingPageFooter = () => {
+    const footer = document.querySelector("footer");
+    const column1 = document.createElement("div");
+    const column2 = document.createElement("div");
+    const column3 = document.createElement("div");
+    const column1H3 = document.createElement("h3");
+    const column1Links = document.createElement("div");
+    const column1Link1 = document.createElement("a");
+    const column1Link2 = document.createElement("a");
+    const column1Link3 = document.createElement("a");
+    const column2H3 = document.createElement("h3");
+    const column2Links = document.createElement("div");
+    const column2Link1 = document.createElement("a");
+    const column2Link2 = document.createElement("a");
+    const column3H3 = document.createElement("h3");
+    const column3Links = document.createElement("div");
+    const column3Link1 = document.createElement("a");
+    const column3Link2 = document.createElement("a");
+    const column3Link1Icon = document.createElement("i");
+    const column3Link2Icon = document.createElement("i");
+
+    column3Links.classList.add("social");
+    column3Link1Icon.classList.add("fab");
+    column3Link1Icon.classList.add("fa-whatsapp");
+    column3Link2Icon.classList.add("fab");
+    column3Link2Icon.classList.add("fa-instagram");
+
+    column1H3.textContent = "Tongoal";
+    column2H3.textContent = "Help";
+    column3H3.textContent = "Follow us";
+    column1Link1.textContent = "About us";
+    column1Link1.href = "#";
+    column1Link2.textContent = "Our services";
+    column1Link2.href = "#";
+    column1Link3.textContent = "Privacy policy";
+    column1Link3.href = "#";
+    column2Link1.textContent = "FAQ";
+    column2Link1.href = "#";
+    column2Link2.textContent = "Contact";
+    column2Link2.href = "#";
+    column3Link1.href = "#";
+    column3Link2.href = "#";
+
+    column3Link1.appendChild(column3Link1Icon);
+    column3Link2.appendChild(column3Link2Icon);
+    column1Links.appendChild(column1Link1);
+    column1Links.appendChild(column1Link2);
+    column1Links.appendChild(column1Link3);
+    column2Links.appendChild(column2Link1);
+    column2Links.appendChild(column2Link2);
+    column3Links.appendChild(column3Link1);
+    column3Links.appendChild(column3Link2);
+
+    column1.appendChild(column1H3);
+    column1.appendChild(column1Links);
+    column2.appendChild(column2H3);
+    column2.appendChild(column2Links);
+    column3.appendChild(column3H3);
+    column3.appendChild(column3Links);
+    footer.appendChild(column1);
+    footer.appendChild(column2);
+    footer.appendChild(column3);
+  };
 
   const updateHeader = (isLogged) => {
     if (isLogged == false) {
       loadLandingPageHeader();
     }
   };
+
   const updateMain = (isLogged) => {
     if (isLogged == false) {
       loadLandingPageMain();
     }
   };
+
   const updateFooter = (isLogged) => {
     if (isLogged == false) {
+      loadSocialIcons();
       loadLandingPageFooter();
     }
   };

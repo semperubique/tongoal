@@ -90,3 +90,67 @@ main {
 .overview img {
   width: 600px;
 }
+
+footer {
+  padding: 4.5rem 0;
+  background-color: #24262b;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+footer > div {
+  width: 33rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+footer div h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 500;
+  position: relative;
+}
+
+footer div h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  background-color: #ffd04b;
+  height: 0.15rem;
+  box-sizing: border-box;
+  width: 3rem;
+}
+
+footer div div a {
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+footer div div a:hover {
+  color: #ffffff;
+  padding-left: 0.5rem;
+}
+
+footer .social a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+footer .social a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+  padding-left: 0;
+}
