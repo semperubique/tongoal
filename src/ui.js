@@ -1,13 +1,13 @@
 import { updateUX } from "./ux";
 
 const updateUI = (() => {
-  const loadSocialIcons = () => {
+  const loadIcons = () => {
     const head = document.querySelector("head");
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.type = "text/css";
     link.href =
-      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css";
+      "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0";
+
     head.appendChild(link);
   };
 
@@ -121,10 +121,6 @@ const updateUI = (() => {
     const column3Link2Icon = document.createElement("i");
 
     column3Links.classList.add("social");
-    column3Link1Icon.classList.add("fab");
-    column3Link1Icon.classList.add("fa-whatsapp");
-    column3Link2Icon.classList.add("fab");
-    column3Link2Icon.classList.add("fa-instagram");
 
     column1H3.textContent = "Tongoal";
     column2H3.textContent = "Help";
@@ -168,27 +164,65 @@ const updateUI = (() => {
     const logo = document.createElement("div");
 
     const navigationBar = document.createElement("div");
-    const games = document.createElement("a");
-    const teams = document.createElement("a");
-    const settings = document.createElement("a");
+    const home = document.createElement("button");
+    const games = document.createElement("button");
+    const teams = document.createElement("button");
+    const settings = document.createElement("button");
     const avatar = document.createElement("div");
-
+    const homeIcon = document.createElement("span");
+    const homeText = document.createElement("p");
+    const gamesIcon = document.createElement("span");
+    const gamesText = document.createElement("p");
+    const teamsIcon = document.createElement("span");
+    const teamsText = document.createElement("p");
+    const settingsIcon = document.createElement("span");
+    const settingsText = document.createElement("p");
     const logoImage = document.createElement("img");
 
     logo.classList.add("logo");
     navigationBar.classList.add("navigationBar");
     avatar.classList.add("avatar");
 
+    homeIcon.classList.add("material-symbols-outlined");
+    gamesIcon.classList.add("material-symbols-outlined");
+    teamsIcon.classList.add("material-symbols-outlined");
+    settingsIcon.classList.add("material-symbols-outlined");
+
+    homeIcon.textContent = "home";
+    gamesIcon.textContent = "sports_soccer";
+    teamsIcon.textContent = "groups";
+    settingsIcon.textContent = "settings";
+
     logoImage.src = "assets/images/logo.svg";
-    games.textContent = "Games";
-    teams.textContent = "Teams";
-    settings.textContent = "Settings";
-    games.href = "#";
-    teams.href = "#";
-    settings.href = "#";
+    homeText.textContent = "Home";
+    gamesText.textContent = "Games";
+    teamsText.textContent = "Teams";
+    settingsText.textContent = "Settings";
     avatar.textContent = "Name Surname";
 
+    home.addEventListener("click", () => {
+      updateWebsiteMainHome();
+    });
+    games.addEventListener("click", () => {
+      updateWebsiteMainGames();
+    });
+    teams.addEventListener("click", () => {
+      updateWebsiteMainTeams();
+    });
+    settings.addEventListener("click", () => {
+      updateWebsiteMainSettings();
+    });
+
     logo.appendChild(logoImage);
+    home.appendChild(homeIcon);
+    home.appendChild(homeText);
+    games.appendChild(gamesIcon);
+    games.appendChild(gamesText);
+    teams.appendChild(teamsIcon);
+    teams.appendChild(teamsText);
+    settings.appendChild(settingsIcon);
+    settings.appendChild(settingsText);
+    navigationBar.appendChild(home);
     navigationBar.appendChild(games);
     navigationBar.appendChild(teams);
     navigationBar.appendChild(settings);
@@ -199,12 +233,35 @@ const updateUI = (() => {
   };
 
   const loadWebsiteMain = () => {
-    const main = document.querySelector("main");
+    updateWebsiteMainHome();
   };
 
   const loadWebsiteFooter = () => {
     const footer = document.querySelector("footer");
     footer.remove();
+  };
+
+  const updateWebsiteMainHome = () => {
+    const main = document.querySelector("main");
+    main.replaceChildren();
+    main.textContent = "home";
+  };
+  const updateWebsiteMainGames = () => {
+    const main = document.querySelector("main");
+    const search = document.createElement("div");
+    const results = document.createElement("div");
+
+    main.replaceChildren();
+    main.appendChild(search);
+    main.appendChild(results);
+  };
+  const updateWebsiteMainTeams = () => {
+    const main = document.querySelector("main");
+    main.replaceChildren();
+  };
+  const updateWebsiteMainSettings = () => {
+    const main = document.querySelector("main");
+    main.replaceChildren();
   };
 
   const updateHeader = (loginStatus) => {
@@ -225,7 +282,6 @@ const updateUI = (() => {
 
   const updateFooter = (loginStatus) => {
     if (loginStatus == false) {
-      loadSocialIcons();
       loadLandingPageFooter();
     } else if (loginStatus == true) {
       loadWebsiteFooter();
@@ -235,6 +291,7 @@ const updateUI = (() => {
   let loginStatus = updateUX.getLoginStatus();
 
   const updateBody = () => {
+    loadIcons();
     updateHeader(loginStatus);
     updateMain(loginStatus);
     updateFooter(loginStatus);
