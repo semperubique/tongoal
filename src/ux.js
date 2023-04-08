@@ -1,9 +1,9 @@
 const updateUX = (() => {
-  const isLogged = () => {
-    return false;
+  const getLoginStatus = () => {
+    return true;
   };
 
-  return { isLogged };
+  return { getLoginStatus };
 })();
 
 export { updateUX };

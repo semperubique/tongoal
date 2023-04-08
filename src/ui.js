@@ -163,30 +163,81 @@ const updateUI = (() => {
     footer.appendChild(column3);
   };
 
-  const updateHeader = (isLogged) => {
-    if (isLogged == false) {
+  const loadWebsiteHeader = () => {
+    const header = document.querySelector("header");
+    const logo = document.createElement("div");
+
+    const navigationBar = document.createElement("div");
+    const games = document.createElement("a");
+    const teams = document.createElement("a");
+    const settings = document.createElement("a");
+    const avatar = document.createElement("div");
+
+    const logoImage = document.createElement("img");
+
+    logo.classList.add("logo");
+    navigationBar.classList.add("navigationBar");
+    avatar.classList.add("avatar");
+
+    logoImage.src = "assets/images/logo.svg";
+    games.textContent = "Games";
+    teams.textContent = "Teams";
+    settings.textContent = "Settings";
+    games.href = "#";
+    teams.href = "#";
+    settings.href = "#";
+    avatar.textContent = "Name Surname";
+
+    logo.appendChild(logoImage);
+    navigationBar.appendChild(games);
+    navigationBar.appendChild(teams);
+    navigationBar.appendChild(settings);
+
+    header.appendChild(logo);
+    header.appendChild(navigationBar);
+    header.appendChild(avatar);
+  };
+
+  const loadWebsiteMain = () => {
+    const main = document.querySelector("main");
+  };
+
+  const loadWebsiteFooter = () => {
+    const footer = document.querySelector("footer");
+    footer.remove();
+  };
+
+  const updateHeader = (loginStatus) => {
+    if (loginStatus == false) {
       loadLandingPageHeader();
+    } else if (loginStatus == true) {
+      loadWebsiteHeader();
     }
   };
 
-  const updateMain = (isLogged) => {
-    if (isLogged == false) {
+  const updateMain = (loginStatus) => {
+    if (loginStatus == false) {
       loadLandingPageMain();
+    } else if (loginStatus == true) {
+      loadWebsiteMain();
     }
   };
 
-  const updateFooter = (isLogged) => {
-    if (isLogged == false) {
+  const updateFooter = (loginStatus) => {
+    if (loginStatus == false) {
       loadSocialIcons();
       loadLandingPageFooter();
+    } else if (loginStatus == true) {
+      loadWebsiteFooter();
     }
   };
 
-  const isLogged = updateUX.isLogged();
-  const updateBody = (isLogged) => {
-    updateHeader(isLogged);
-    updateMain(isLogged);
-    updateFooter(isLogged);
+  let loginStatus = updateUX.getLoginStatus();
+
+  const updateBody = () => {
+    updateHeader(loginStatus);
+    updateMain(loginStatus);
+    updateFooter(loginStatus);
   };
 
   return { updateBody };

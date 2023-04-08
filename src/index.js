@@ -1,5 +1,3 @@
-let isLogged = false;
-
 import { updateUI } from "./ui";
 
-updateUI.updateBody(isLogged);
+updateUI.updateBody();
