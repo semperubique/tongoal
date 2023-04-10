@@ -9,13 +9,15 @@ const updateUX = (() => {
         date: "20 September 2023",
         time: "10:00",
         stadium: "Yeni Surakhani Stadium",
-        location: "Baku, Azerbaijan",
+        region: "Baku",
+        country: "Azerbaijan",
       },
       {
         date: "23 September 2023",
         time: "10:00",
         stadium: "Bina Stadium",
-        location: "Baku, Azerbaijan",
+        region: "Baku",
+        country: "Azerbaijan",
       },
     ];
     return games;
