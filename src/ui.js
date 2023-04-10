@@ -1,4 +1,4 @@
-import { updateUX } from "./ux";
+import { updateUX, getGames } from "./ux";
 
 const updateUI = (() => {
   const loadIcons = () => {
@@ -9,6 +9,10 @@ const updateUI = (() => {
       "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0";
 
     head.appendChild(link);
+  };
+
+  const updateNavigationBarButtonBackground = (button) => {
+    button.classList.add("active");
   };
 
   const loadLandingPageHeader = () => {
@@ -202,6 +206,7 @@ const updateUI = (() => {
 
     home.addEventListener("click", () => {
       updateWebsiteMainHome();
+      updateNavigationBarButtonBackground(home);
     });
     games.addEventListener("click", () => {
       updateWebsiteMainGames();
@@ -248,12 +253,47 @@ const updateUI = (() => {
   };
   const updateWebsiteMainGames = () => {
     const main = document.querySelector("main");
-    const search = document.createElement("div");
+    const games = document.createElement("div");
+    const searchBar = document.createElement("div");
+    const createGame = document.createElement("div");
     const results = document.createElement("div");
+    const resultsHeader = document.createElement("div");
+
+    const avaiableGames = updateUX.getGames();
+    avaiableGames.forEach((avaiableGame) => {
+      const result = document.createElement("div");
+      const date = document.createElement("div");
+      const time = document.createElement("div");
+      const stadium = document.createElement("div");
+      const location = document.createElement("div");
+      const join = document.createElement("button");
+
+      date.textContent = avaiableGame["date"];
+      time.textContent = avaiableGame["time"];
+      stadium.textContent = avaiableGame["stadium"];
+      location.textContent = avaiableGame["location"];
+      join.textContent = "Join now";
+
+      result.classList.add("result");
+
+      result.appendChild(date);
+      result.appendChild(time);
+      result.appendChild(stadium);
+      result.appendChild(location);
+      result.appendChild(join);
+      results.appendChild(result);
+    });
+
+    games.classList.add("games");
+    searchBar.classList.add("searchBar");
+    results.classList.add("results");
+    createGame.classList.add("createGame");
 
     main.replaceChildren();
-    main.appendChild(search);
-    main.appendChild(results);
+    games.appendChild(searchBar);
+    games.appendChild(createGame);
+    games.appendChild(results);
+    main.appendChild(games);
   };
   const updateWebsiteMainTeams = () => {
     const main = document.querySelector("main");

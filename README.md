@@ -1,6 +1,6 @@
 Interface:
 header:
-logo | Games | Teams | Settings
+logo | Games | Teams | Settings | Avatar
 
 main: games:
 search bar | create a game
