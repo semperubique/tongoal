@@ -23,7 +23,27 @@ const updateUX = (() => {
     return games;
   };
 
-  return { getLoginStatus, getGames };
+  const getTeams = () => {
+    const teams = [
+      {
+        name: "Vehwiler",
+        manager: "Furfur",
+        country: "Azerbaijan",
+      },
+      {
+        name: "Keleler",
+        manager: "Furfur",
+        country: "Azerbaijan",
+      },
+      {
+        name: "Kelemler",
+        manager: "Furfur",
+        country: "Azerbaijan",
+      },
+    ];
+    return teams;
+  };
+  return { getLoginStatus, getGames, getTeams };
 })();
 
 export { updateUX };

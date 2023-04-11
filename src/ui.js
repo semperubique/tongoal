@@ -269,14 +269,10 @@ const updateUI = (() => {
     const searchBar = document.createElement("div");
     const createGame = document.createElement("div");
     const results = document.createElement("div");
-
     const form = document.createElement("form");
-
-    // Create the location label and select element
     const countrySelect = document.createElement("select");
     countrySelect.setAttribute("name", "country");
     countrySelect.setAttribute("required", true);
-    form.appendChild(countrySelect);
 
     const countries = [
       "Afghanistan",
@@ -533,7 +529,6 @@ const updateUI = (() => {
     const defaultCountryOption = document.createElement("option");
     defaultCountryOption.textContent = "Please choose a country";
     defaultCountryOption.setAttribute("value", "");
-    // defaultCountryOption.setAttribute("value", "");
     countrySelect.appendChild(defaultCountryOption);
     countrySelect.options[0].disabled = true;
     countries.forEach((country) => {
@@ -542,24 +537,18 @@ const updateUI = (() => {
       option.textContent = country;
       countrySelect.appendChild(option);
     });
-
-    // Create the date label and input element
     const dateLabel = document.createElement("label");
     dateLabel.textContent = "Date:";
-    form.appendChild(dateLabel);
 
     const dateInput = document.createElement("input");
     dateInput.setAttribute("type", "date");
     dateInput.setAttribute("id", "date");
     dateInput.setAttribute("name", "date");
-    form.appendChild(dateInput);
 
-    // Create the submit button
     const submitButton = document.createElement("button");
     form.setAttribute("action", "javascript:void(0);");
     submitButton.addEventListener("click", () => {});
     submitButton.textContent = "Apply Filters";
-    form.appendChild(submitButton);
 
     const avaiableGames = updateUX.getGames();
     avaiableGames.forEach((avaiableGame) => {
@@ -593,6 +582,10 @@ const updateUI = (() => {
     createGame.classList.add("createGame");
 
     main.replaceChildren();
+    form.appendChild(countrySelect);
+    form.appendChild(dateLabel);
+    form.appendChild(dateInput);
+    form.appendChild(submitButton);
     searchBar.appendChild(form);
     games.appendChild(searchBar);
     games.appendChild(createGame);
@@ -601,7 +594,61 @@ const updateUI = (() => {
   };
   const updateWebsiteMainTeams = () => {
     const main = document.querySelector("main");
+    const teams = document.createElement("div");
+    const searchBar = document.createElement("div");
+    const createTeam = document.createElement("div");
+    const results = document.createElement("div");
+
+    const searchBarInput = document.createElement("input");
+    searchBarInput.setAttribute("placeholder", "Search for teams...");
+    searchBarInput.addEventListener("keyup", () => {
+      results.childNodes.forEach((result) => {
+        if (
+          result.childNodes[0].textContent
+            .toUpperCase()
+            .indexOf(searchBarInput.value.toUpperCase()) > -1
+        ) {
+          result.style.display = "";
+        } else {
+          result.style.display = "none";
+        }
+      });
+    });
+
+    const avaiableTeams = updateUX.getTeams();
+    avaiableTeams.forEach((avaiableTeam) => {
+      const result = document.createElement("div");
+      const name = document.createElement("div");
+      const manager = document.createElement("div");
+      const country = document.createElement("div");
+      const join = document.createElement("button");
+
+      name.textContent = avaiableTeam["name"];
+      manager.textContent = avaiableTeam["manager"];
+      country.textContent = avaiableTeam["country"];
+      join.textContent = "Join now";
+
+      result.classList.add("result");
+
+      result.appendChild(name);
+      result.appendChild(manager);
+      result.appendChild(country);
+      result.appendChild(join);
+      results.appendChild(result);
+    });
+
+    teams.classList.add("teams");
+    searchBar.classList.add("searchBar");
+    results.classList.add("results");
+    createTeam.classList.add("createTeam");
+    searchBarInput.classList.add("searchBarInput");
+
     main.replaceChildren();
+    searchBar.appendChild(searchBarInput);
+    teams.appendChild(searchBar);
+    teams.appendChild(createTeam);
+    teams.appendChild(results);
+    main.appendChild(teams);
   };
   const updateWebsiteMainSettings = () => {
     const main = document.querySelector("main");

@@ -205,11 +205,23 @@ footer .social a:hover {
   border: 0.1rem solid #ebecec;
 }
 
+.teams {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 1rem;
+  gap: 0rem 1rem;
+  background-color: #fafafc;
+  border: 0.1rem solid #ebecec;
+}
+
 .searchBar {
   background-color: #fafafc;
   width: 90%;
   height: 3rem;
   border: 0.1rem solid #ebecec;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .createGame {
@@ -221,6 +233,19 @@ footer .social a:hover {
 }
 
 .createGame:hover {
+  background-color: #17834f;
+  border: 0.1rem solid #17834f;
+}
+
+.createTeam {
+  background-color: #1fa463;
+  flex-grow: 1;
+  height: 3rem;
+  border: 0.1rem solid #1fa463;
+  border-radius: 0.3rem;
+}
+
+.createTeam:hover {
   background-color: #17834f;
   border: 0.1rem solid #17834f;
 }
@@ -273,4 +298,17 @@ main .results .result button {
 main .results .result button:hover {
   color: #fff;
   background-color: #17834f;
+}
+
+main .teams .searchBarInput {
+  background: none;
+  border: none;
+  font: inherit;
+  padding: 0rem 0.4rem;
+  letter-spacing: 0.05rem;
+  height: 100%;
+}
+
+.searchBar > * {
+  flex-grow: 1;
 }
