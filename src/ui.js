@@ -275,6 +275,7 @@ const updateUI = (() => {
     countrySelect.setAttribute("required", true);
 
     const countries = [
+      "All countries",
       "Afghanistan",
       "Albania",
       "Algeria",
@@ -526,29 +527,66 @@ const updateUI = (() => {
       "Åland Islands",
     ];
 
-    const defaultCountryOption = document.createElement("option");
-    defaultCountryOption.textContent = "Please choose a country";
-    defaultCountryOption.setAttribute("value", "");
-    countrySelect.appendChild(defaultCountryOption);
-    countrySelect.options[0].disabled = true;
     countries.forEach((country) => {
       const option = document.createElement("option");
       option.setAttribute("value", country.toLowerCase());
       option.textContent = country;
       countrySelect.appendChild(option);
     });
-    const dateLabel = document.createElement("label");
-    dateLabel.textContent = "Date:";
 
     const dateInput = document.createElement("input");
     dateInput.setAttribute("type", "date");
-    dateInput.setAttribute("id", "date");
     dateInput.setAttribute("name", "date");
 
-    const submitButton = document.createElement("button");
+    const applyFilters = document.createElement("button");
     form.setAttribute("action", "javascript:void(0);");
-    submitButton.addEventListener("click", () => {});
-    submitButton.textContent = "Apply Filters";
+    applyFilters.addEventListener("click", () => {
+      if (dateInput.value == "") {
+        if (countrySelect.value !== "all countries") {
+          results.childNodes.forEach((result) => {
+            if (
+              result.childNodes[4].textContent.toLowerCase() ==
+              countrySelect.value
+            ) {
+              result.style.display = "";
+            } else {
+              result.style.display = "none";
+            }
+          });
+        } else {
+          results.childNodes.forEach((result) => {
+            result.style.display = "";
+          });
+        }
+      } else {
+        if (countrySelect.value !== "all countries") {
+          results.childNodes.forEach((result) => {
+            if (
+              result.childNodes[4].textContent.toLowerCase() ==
+                countrySelect.value &&
+              result.childNodes[0].textContent ==
+                dateInput.valueAsDate.toLocaleDateString()
+            ) {
+              result.style.display = "";
+            } else {
+              result.style.display = "none";
+            }
+          });
+        } else {
+          results.childNodes.forEach((result) => {
+            if (
+              result.childNodes[0].textContent ==
+              dateInput.valueAsDate.toLocaleDateString()
+            ) {
+              result.style.display = "";
+            } else {
+              result.style.display = "none";
+            }
+          });
+        }
+      }
+    });
+    applyFilters.textContent = "Apply";
 
     const avaiableGames = updateUX.getGames();
     avaiableGames.forEach((avaiableGame) => {
@@ -556,14 +594,15 @@ const updateUI = (() => {
       const date = document.createElement("div");
       const time = document.createElement("div");
       const stadium = document.createElement("div");
-      const location = document.createElement("div");
+      const region = document.createElement("div");
+      const country = document.createElement("div");
       const join = document.createElement("button");
 
       date.textContent = avaiableGame["date"];
       time.textContent = avaiableGame["time"];
       stadium.textContent = avaiableGame["stadium"];
-      location.textContent =
-        avaiableGame["region"] + ", " + avaiableGame["country"];
+      region.textContent = avaiableGame["region"];
+      country.textContent = avaiableGame["country"];
       join.textContent = "Join now";
 
       result.classList.add("result");
@@ -571,7 +610,8 @@ const updateUI = (() => {
       result.appendChild(date);
       result.appendChild(time);
       result.appendChild(stadium);
-      result.appendChild(location);
+      result.appendChild(region);
+      result.appendChild(country);
       result.appendChild(join);
       results.appendChild(result);
     });
@@ -583,15 +623,15 @@ const updateUI = (() => {
 
     main.replaceChildren();
     form.appendChild(countrySelect);
-    form.appendChild(dateLabel);
     form.appendChild(dateInput);
-    form.appendChild(submitButton);
+    form.appendChild(applyFilters);
     searchBar.appendChild(form);
     games.appendChild(searchBar);
     games.appendChild(createGame);
     games.appendChild(results);
     main.appendChild(games);
   };
+
   const updateWebsiteMainTeams = () => {
     const main = document.querySelector("main");
     const teams = document.createElement("div");

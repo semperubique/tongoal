@@ -6,7 +6,7 @@ const updateUX = (() => {
   const getGames = () => {
     const games = [
       {
-        date: "20 September 2023",
+        date: new Date().toLocaleDateString(),
         time: "10:00",
         stadium: "Yeni Surakhani Stadium",
         region: "Baku",
@@ -17,7 +17,7 @@ const updateUX = (() => {
         time: "10:00",
         stadium: "Bina Stadium",
         region: "Baku",
-        country: "Azerbaijan",
+        country: "Afghanistan",
       },
     ];
     return games;
