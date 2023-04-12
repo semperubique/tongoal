@@ -596,23 +596,52 @@ const updateUI = (() => {
       const stadium = document.createElement("div");
       const region = document.createElement("div");
       const country = document.createElement("div");
-      const join = document.createElement("button");
+      const expandMore = document.createElement("button");
+      const expandMoreIcon = document.createElement("span");
+      const moreActions = document.createElement("div");
+      const description = document.createElement("div");
+      const descriptionHeader = document.createElement("h1");
+      const descriptionParagraph = document.createElement("p");
+      const teamStatus = document.createElement("div");
 
       date.textContent = avaiableGame["date"];
       time.textContent = avaiableGame["time"];
       stadium.textContent = avaiableGame["stadium"];
       region.textContent = avaiableGame["region"];
       country.textContent = avaiableGame["country"];
-      join.textContent = "Join now";
+      descriptionHeader.textContent = "Description";
+      descriptionParagraph.textContent = avaiableGame["description"];
+      expandMoreIcon.textContent = "expand_more";
+      moreActions.style.display = "none";
 
       result.classList.add("result");
+      expandMoreIcon.classList.add("material-symbols-outlined");
 
+      expandMore.addEventListener("click", () => {
+        if (expandMoreIcon.textContent == "expand_more") {
+          expandMoreIcon.textContent = "expand_less";
+          moreActions.style.display = "";
+        } else {
+          expandMoreIcon.textContent = "expand_more";
+          moreActions.style.display = "none";
+        }
+      });
+
+      description.classList.add("gameDescription");
+      moreActions.classList.add("moreActions");
+
+      description.appendChild(descriptionHeader);
+      description.appendChild(descriptionParagraph);
+      expandMore.appendChild(expandMoreIcon);
+      moreActions.appendChild(document.createElement("hr"));
+      moreActions.appendChild(description);
       result.appendChild(date);
       result.appendChild(time);
       result.appendChild(stadium);
       result.appendChild(region);
       result.appendChild(country);
-      result.appendChild(join);
+      result.appendChild(expandMore);
+      result.appendChild(moreActions);
       results.appendChild(result);
     });
 

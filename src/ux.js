@@ -11,9 +11,11 @@ const updateUX = (() => {
         stadium: "Yeni Surakhani Stadium",
         region: "Baku",
         country: "Azerbaijan",
+        description: "Please be respectful and arrive early",
+        status: "",
       },
       {
-        date: "23 September 2023",
+        date: "23/09/2023",
         time: "10:00",
         stadium: "Bina Stadium",
         region: "Baku",
