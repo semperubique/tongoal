@@ -312,3 +312,32 @@ main .teams .searchBarInput {
 .searchBar > * {
   flex-grow: 1;
 }
+
+main .games .searchBar form {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  padding: 0.5rem 0.1rem;
+}
+
+main .games .searchBar form > input[type="date"],
+select,
+button {
+  background-color: #fafafc;
+  padding: 0.3rem 0.2rem;
+  border: 0.1rem solid #ebecec;
+  border-radius: 0.1rem;
+}
+
+main .games .searchBar form button {
+  background-color: #1fa463;
+  color: #fff;
+  border-color: #1fa463;
+  padding: 0.3rem 0.5rem;
+  letter-spacing: 0.05rem;
+}
+
+main .games .searchBar form button:hover {
+  background-color: #17834f;
+  border-color: #17834f;
+}
