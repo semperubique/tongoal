@@ -264,11 +264,16 @@ footer .social a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3rem;
   background-color: #fafafc;
   border: 0.1rem solid #ebecec;
   border-radius: 0.3rem;
   padding: 0rem 1rem;
+}
+
+main .games .results .result {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr) 1fr;
+  /* grid-template-rows: 1fr 1fr; */
 }
 
 .result:hover {
@@ -292,7 +297,7 @@ main .results .result button {
   background-color: #1fa463;
   color: #fafafc;
   letter-spacing: 0.05rem;
-  width: 50%;
+  /* width: 50%; */
 }
 
 main .results .result button:hover {
@@ -340,4 +345,28 @@ main .games .searchBar form button {
 main .games .searchBar form button:hover {
   background-color: #17834f;
   border-color: #17834f;
+}
+
+.gameDescription {
+}
+
+.moreActions {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  /* border-top: 0.1rem solid #a1a1a1; */
+}
+
+.moreActions hr {
+  border: 0;
+  height: 0;
+  border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+
+.moreActions h1 {
+  font-size: 1.2rem;
+}
+
+.moreActions p {
+  color: rgba(0, 0, 0, 0.801);
 }
