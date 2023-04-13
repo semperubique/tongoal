@@ -12,7 +12,9 @@ const updateUX = (() => {
         region: "Baku",
         country: "Azerbaijan",
         description: "Please be respectful and arrive early",
-        status: "",
+        maxNumberOfPlayersPerTeam: "6",
+        team1Status: "user1, user2, user3",
+        team2Status: "user4, user7",
       },
       {
         date: "23/09/2023",
@@ -20,6 +22,9 @@ const updateUX = (() => {
         stadium: "Bina Stadium",
         region: "Baku",
         country: "Afghanistan",
+        description: "No description available",
+        team1Status: "",
+        team2Status: "",
       },
     ];
     return games;

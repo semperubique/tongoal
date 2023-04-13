@@ -347,13 +347,9 @@ main .games .searchBar form button:hover {
   border-color: #17834f;
 }
 
-.gameDescription {
-}
-
 .moreActions {
   grid-column: 1 / -1;
   grid-row: 2;
-  /* border-top: 0.1rem solid #a1a1a1; */
 }
 
 .moreActions hr {
@@ -369,4 +365,60 @@ main .games .searchBar form button:hover {
 
 .moreActions p {
   color: rgba(0, 0, 0, 0.801);
+}
+
+main .games .results .result .moreActions .teamStatus {
+  display: flex;
+  flex-direction: column;
+}
+
+main .games .results .result .moreActions .teamStatus > * {
+  flex-grow: 1;
+}
+
+main .games .results .result .moreActions .teamStatus .teamJoinButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+main .games .results .result .moreActions .teamStatus .teamJoinButtons button {
+  --_c: #42b832;
+  flex: 1;
+  transition: 0.4s;
+}
+
+main
+  .games
+  .results
+  .result
+  .moreActions
+  .teamStatus
+  .teamJoinButtons
+  button
+  + button {
+  --_c: #ff003c;
+}
+
+main
+  .games
+  .results
+  .result
+  .moreActions
+  .teamStatus
+  .teamJoinButtons
+  button:hover {
+  flex: 1.75;
+}
+
+main
+  .games
+  .results
+  .result
+  .moreActions
+  .teamStatus
+  .teamJoinButtons
+  button:hover {
+  background-color: var(--_c);
 }

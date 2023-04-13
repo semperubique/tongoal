@@ -603,6 +603,30 @@ const updateUI = (() => {
       const descriptionHeader = document.createElement("h1");
       const descriptionParagraph = document.createElement("p");
       const teamStatus = document.createElement("div");
+      const teamStatusHeader = document.createElement("h1");
+      const team1Status = document.createElement("div");
+      const team2Status = document.createElement("div");
+      const team1Name = document.createElement("h2");
+      const team2Name = document.createElement("h2");
+      const team1Avatars = document.createElement("div");
+      const team2Avatars = document.createElement("div");
+      const teamJoinButtons = document.createElement("div");
+      const team1Join = document.createElement("button");
+      const team2Join = document.createElement("button");
+
+      team1Name.textContent = "Team 1";
+      team2Name.textContent = "Team 2";
+      team1Join.textContent = "Team 1";
+      team2Join.textContent = "Team 2";
+
+      team1Status.appendChild(team1Name);
+      team1Status.appendChild(team1Avatars);
+
+      team2Status.appendChild(team2Name);
+      team2Status.appendChild(team2Avatars);
+
+      teamJoinButtons.appendChild(team1Join);
+      teamJoinButtons.appendChild(team2Join);
 
       date.textContent = avaiableGame["date"];
       time.textContent = avaiableGame["time"];
@@ -610,6 +634,7 @@ const updateUI = (() => {
       region.textContent = avaiableGame["region"];
       country.textContent = avaiableGame["country"];
       descriptionHeader.textContent = "Description";
+      teamStatusHeader.textContent = "Choose your side";
       descriptionParagraph.textContent = avaiableGame["description"];
       expandMoreIcon.textContent = "expand_more";
       moreActions.style.display = "none";
@@ -629,12 +654,19 @@ const updateUI = (() => {
 
       description.classList.add("gameDescription");
       moreActions.classList.add("moreActions");
+      teamStatus.classList.add("teamStatus");
+      teamJoinButtons.classList.add("teamJoinButtons");
 
       description.appendChild(descriptionHeader);
       description.appendChild(descriptionParagraph);
+      teamStatus.appendChild(teamStatusHeader);
+      teamStatus.appendChild(team1Status);
+      teamStatus.appendChild(team2Status);
+      teamStatus.appendChild(teamJoinButtons);
       expandMore.appendChild(expandMoreIcon);
       moreActions.appendChild(document.createElement("hr"));
       moreActions.appendChild(description);
+      moreActions.appendChild(teamStatus);
       result.appendChild(date);
       result.appendChild(time);
       result.appendChild(stadium);
